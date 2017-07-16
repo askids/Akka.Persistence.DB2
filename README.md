@@ -19,8 +19,8 @@ Keep the column names same. But you are free to change table/schema name.
 akka.persistence{
 	journal {
 		DB2 {
-			# qualified type name of the SQL Server persistence journal actor
-			class = "Akka.Persistence.SqlServer.Journal.DB2Journal, Akka.Persistence.DB2"
+			# qualified type name of the DB2 persistence journal actor
+			class = "Akka.Persistence.DB2.Journal.DB2Journal, Akka.Persistence.DB2"
 
 			# dispatcher used to drive journal actor
 			plugin-dispatcher = "akka.actor.default-dispatcher"
@@ -52,7 +52,7 @@ akka.persistence{
 		DB2 {
 
 			# qualified type name of the DB2 persistence journal actor
-			class = "Akka.Persistence.SqlServer.Snapshot.DB2SnapshotStore, Akka.Persistence.DB2"
+			class = "Akka.Persistence.DB2.Snapshot.DB2SnapshotStore, Akka.Persistence.DB2"
 
 			# dispatcher used to drive journal actor
 			plugin-dispatcher = ""akka.actor.default-dispatcher""
@@ -111,9 +111,9 @@ CREATE TABLE {your_metadata_table_name} (
 Underneath Akka.Persistence.DB2 uses a raw ADO.NET commands. You may choose not to use a dedicated built in ones, but to create your own being better fit for your use case. To do so, you have to create your own versions of `IJournalQueryBuilder` and `IJournalQueryMapper` (for custom journals) or `ISnapshotQueryBuilder` and `ISnapshotQueryMapper` (for custom snapshot store) and then attach inside journal, just like in the example below:
 
 ```C#
-class MyCustomDB2SJournal: Akka.Persistence.DB2.Journal.SqlServerJournal
+class MyCustomDB2SJournal: Akka.Persistence.DB2.Journal.DB2Journal
 {
-    public MyCustomSqlServerJournal() : base()
+    public MyCustomDB2Journal() : base()
     {
         QueryBuilder = new MyCustomJournalQueryBuilder();
         QueryMapper = new MyCustomJournalQueryMapper();

@@ -7,7 +7,7 @@
 
 using IBM.Data.DB2;
 
-namespace Akka.Persistence.SqlServer
+namespace Akka.Persistence.DB2
 {
     internal static class InternalExtensions
     {
