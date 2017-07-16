@@ -1,2 +1,2 @@
-# Akka.Persistence.DB2onZOS
-Akka's persistance Implementation using DB2 on z/OS
+# Akka.Persistence.DB2
+Akka's persistance Implementation using DB2
