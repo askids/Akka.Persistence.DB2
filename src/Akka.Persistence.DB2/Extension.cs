@@ -69,7 +69,7 @@ namespace Akka.Persistence.DB2
     }
 
     /// <summary>
-    /// Singleton class used to setup SQL Server backend for akka persistence plugin.
+    /// Singleton class used to setup DB2 backend for akka persistence plugin.
     /// </summary>
     public class DB2PersistenceProvider : ExtensionIdProvider<DB2Persistence>
     {
