@@ -1,5 +1,7 @@
 ## Akka.Persistence.DB2
-Akka's persistance Journal and snapshot sore backed by DB2 database
+Akka's persistance Journal and snapshot store backed by DB2 database. 
+
+This is a clone copy of the SQL Server Implementation.
 
 **WARNING: Akka.Persistence.DB2 plugin is still in alpha and it's mechanics described bellow may be still subject to change**.
 
@@ -109,7 +111,7 @@ CREATE TABLE {your_metadata_table_name} (
 Underneath Akka.Persistence.DB2 uses a raw ADO.NET commands. You may choose not to use a dedicated built in ones, but to create your own being better fit for your use case. To do so, you have to create your own versions of `IJournalQueryBuilder` and `IJournalQueryMapper` (for custom journals) or `ISnapshotQueryBuilder` and `ISnapshotQueryMapper` (for custom snapshot store) and then attach inside journal, just like in the example below:
 
 ```C#
-class MyCustomSqlServerJournal: Akka.Persistence.SqlServer.Journal.SqlServerJournal
+class MyCustomDB2SJournal: Akka.Persistence.DB2.Journal.SqlServerJournal
 {
     public MyCustomSqlServerJournal() : base()
     {
