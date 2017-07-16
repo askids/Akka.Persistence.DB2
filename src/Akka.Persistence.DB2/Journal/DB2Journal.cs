@@ -38,6 +38,7 @@ namespace Akka.Persistence.DB2.Journal
         protected override DbConnection CreateDbConnection(string connectionString) => new DB2Connection(connectionString);
 
         protected override string JournalConfigPath => DB2JournalSettings.ConfigPath;
+
         public override IJournalQueryExecutor QueryExecutor { get; }
     }
 }
